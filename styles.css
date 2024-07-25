@@ -1,0 +1,49 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 50px;
+  background-color: #2C2F33; /* secondary color */
+  padding: 20px; /* add some padding to the body */
+}
+
+button {
+  position: absolute; /* position the button absolutely */
+  top: 20px; /* move the button to the top */
+  left: 50%; /* center the button horizontally */
+  transform: translateX(-50%); /* adjust the button's position */
+  padding: 10px 20px;
+  font-size: 26px;
+  background-color: #7289DA; /* primary color */
+  color: #FFFFFF; /* white text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
+}
+
+#dice-container {
+  display: flex; /* display the dice in a flexbox layout */
+  flex-wrap: wrap; /* wrap the dice to the next line */
+  justify-content: center; /* center the dice horizontally */
+  margin-top: 50px; /* add some space between the button and the dice */
+}
+
+.die {
+  width: 150px; /* set a fixed width for each die */
+  height: 50px; /* set a fixed height for each die */
+  background-color: #FFFFFF; /* white background for each die */
+  border: 1px solid #CCCCCC; /* add a border to each die */
+  border-radius: 1px; /* add a subtle border radius */
+  margin: 3px; /* add some space between each die */
+  display: flex; /* display the die content in a flexbox layout */
+  justify-content: center; /* center the die content horizontally */
+  align-items: center; /* center the die content vertically */
+}
+
+#result {
+  margin-top: 20px; /* add some space between the dice and the result */
+  font-size: 24px;
+  color: #FF69B4; /* accent color */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* add a subtle shadow to the text */
+}
