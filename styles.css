@@ -1,67 +1,76 @@
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  text-align: center;
-  margin-top: 50px;
-  background-color: #2C2F33; /* secondary color */
-  padding: 20px; /* add some padding to the body */
+  background-color: #23272A; 
+  color: #313131;           
+  font-family: 'Roboto', sans-serif; 
+  -webkit-text-fill-color: aquamarine; /* Apply aquamarine color to all text */
 }
 
-button {
-  position: absolute; /* position the button absolutely */
-  top: 20px; /* move the button to the top */
-  left: 50%; /* center the button horizontally */
-  transform: translateX(-50%); /* adjust the button's position */
-  padding: 10px 20px;
-  font-size: 26px;
-  background-color: #7289DA; /* primary color */
-  color: #FFFFFF; /* white text color */
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 5px;
+}
+
+.dice-selection {
+  width: 500px;
+  background-color: #2C2F33;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.dice-type {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dice-text {
+  padding-left: 10px;
+}
+
+.dice-type button {
+  background-color: #7289DA;
+  color: white;
   border: none;
-  border-radius: 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* add a subtle shadow */
 }
 
-#dice-container {
-	display: flex; /* display the dice in a flexbox layout */
-	flex-wrap: wrap; /* wrap the dice to the next line */
-	justify-content: center; /* center the dice horizontally */
-	margin-top: 50px; /* add some space between the button and the dice */
+.dice-type .count {
+  margin: 0 10px;
+  font-size: 18px;
 }
 
 .die {
-  width: 80px;   
-  height: 80px; 
-  background-color: #FFFFFF; 
-  border: 1px solid #CCCCCC; 
-  border-radius: 10px; /* Add this line to round the corners */
-  margin: 10px; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  position: relative;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
-
-.value {
-  font-size: 24px;
-  font-weight: bold;
+.dice-results {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+	align-items:center;
+  margin-left: 16px;
 }
 
-.message {
-  position: absolute;
-  bottom: -35px;  /* Adjust as needed for spacing */
-  left: 50%;
-  transform: translateX(-50%); 
-  width: 100%; /* Make the message span the width of the die */
-  text-align: center; /* Center the text within the message span */
-  font-size: 16px; 
-  color: #993366; 
+.dice-type-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
 }
 
-#result {
-  margin-top: 20px; /* add some space between the dice and the result */
-  font-size: 24px;
-  color: #00b828; /* accent color */
-  text-shadow: 0 1px 2px rgba(0, 76, 4, 0.2); /* add a subtle shadow to the text */
+#rollButton {
+  background-color: #7289DA;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px; 
+  margin-top: 10px; /* Add some space above the button */
 }

@@ -1,45 +1,64 @@
-// Define the dice types
-const diceTypes = [
-  { name: 'D-100', sides: 100, message: ' D-100.' },
-  { name: 'D-20', sides: 20, message: 'D-20.' },
-  { name: 'D-12', sides: 12, message: 'D-12.' },
-  { name: 'D-10', sides: 10, message: 'D-10.' },
-  { name: 'D-6', sides: 6, message: 'D-6.' },
-  { name: 'D-4', sides: 4, message: 'D-4.' }
-];
-
-// Get all die elements
-const dice = document.querySelectorAll('.die');
+// Get the dice container
+const diceContainer = document.querySelector('.dice-container');
 
 // Get the roll button
 const rollButton = document.getElementById('rollButton');
 
+// Get all dice type elements
+const diceTypeElements = document.querySelectorAll('.dice-type');
+
+// Function to roll a single die of a given type
+function rollDie(sides) {
+  return Math.floor(Math.random() * sides) + 1;
+}
+
+// Function to display a single die roll result
+function displayDieResult(diceType, value) {
+  const dieElement = document.createElement('div');
+  dieElement.classList.add('die');
+  dieElement.textContent = `${value} ${diceType}.`;
+  const resultsContainer = document.getElementById(`${diceType}-results`);
+  resultsContainer.appendChild(dieElement);
+}
+
 // Function to roll the dice
 function rollDice() {
-  // Loop through each die
-  dice.forEach((die, index) => {
-    // Get the current die type
-    const dieType = diceTypes[index];
+  // Clear previous results
+  diceTypeElements.forEach(diceTypeElement => {
+    const diceType = diceTypeElement.dataset.type;
+    const resultsContainer = document.getElementById(`${diceType}-results`);
+    resultsContainer.innerHTML = '';
+  });
 
-    // Generate a random value between 1 and the number of sides
-    const value = Math.floor(Math.random() * dieType.sides) + 1;
+  // Loop through each dice type element
+  diceTypeElements.forEach(diceTypeElement => {
+    const diceType = diceTypeElement.dataset.type;
+    const sides = parseInt(diceType.slice(2), 10); // Extract the number of sides
+    const count = parseInt(diceTypeElement.querySelector('.count').textContent, 10);
 
-    // Update the die value attribute
-    die.setAttribute('data-value', value);
-
-    // Get the value span element
-    const valueSpan = die.querySelector('.value');
-
-    // Get the message span element
-    const messageSpan = die.querySelector('.message');
-
-    // Display the value
-    valueSpan.textContent = value;
-
-    // Display the message
-    messageSpan.textContent = dieType.message.replace('{value}', value);
+    // Roll the selected number of dice for this type
+    for (let i = 0; i < count; i++) {
+      const value = rollDie(sides);
+      displayDieResult(diceType, value);
+    }
   });
 }
+
+// Add event listeners to increase/decrease buttons
+diceTypeElements.forEach(diceTypeElement => {
+  const decreaseButton = diceTypeElement.querySelector('.decrease');
+  const increaseButton = diceTypeElement.querySelector('.increase');
+  const countSpan = diceTypeElement.querySelector('.count');
+
+  function updateCount(change) {
+    let count = parseInt(countSpan.textContent, 10);
+    count = Math.max(0, Math.min(6, count + change)); // Ensure count is between 0 and 6
+    countSpan.textContent = count;
+  }
+
+  decreaseButton.addEventListener('click', () => updateCount(-1));
+  increaseButton.addEventListener('click', () => updateCount(1));
+});
 
 // Add event listener to the roll button
 rollButton.addEventListener('click', rollDice);
