@@ -1,23 +1,42 @@
+/* 
+  General Styles
+  - Apply to the entire page 
+*/
 body {
-  background-color: #23272A; 
-  color: #313131;           
-  font-family: 'Roboto', sans-serif; 
-  -webkit-text-fill-color: aquamarine; /* Apply aquamarine color to all text */
+  background-color: #23272a;
+  color: #313131;
+  font-family: "Roboto", sans-serif;
+  -webkit-text-fill-color: aquamarine;
 }
 
+/* 
+  Layout Styles
+  - Define the structure and positioning of elements
+*/
 .container {
-  display: grid;
-  grid-template-columns: 250px 1fr;
+  display: flex; /* Arrange dice and cards sections side by side */
+  grid-template-columns: 250px 1fr; /* If you decide to use grid later */
   gap: 5px;
 }
 
 .dice-selection {
-  width: 500px;
-  background-color: #2C2F33;
+  width: 400px;
+  background-color: #2c2f33;
   padding: 20px;
   border-radius: 8px;
 }
 
+.cards-container {
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+/* 
+  Component Styles
+  - Styles for specific UI elements
+*/
+
+/* Dice Type */
 .dice-type {
   display: flex;
   align-items: center;
@@ -28,33 +47,12 @@ body {
   padding-left: 10px;
 }
 
-.dice-type button {
-  background-color: #7289DA;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.dice-type .count {
-  margin: 0 10px;
-  font-size: 18px;
-}
-
-.die {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-}
-
+/* Dice Results */
 .dice-results {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
-	align-items:center;
+  align-items: center;
   margin-left: 16px;
 }
 
@@ -64,13 +62,57 @@ body {
   margin-bottom: 20px;
 }
 
-#rollButton {
-  background-color: #7289DA;
+/* Individual Die */
+.die {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.card img {
+  filter: blur(20px); /* Adjust the blur radius as needed */
+}
+/* Cards */
+.card {
+  width: 250px;
+  height: 375px;
+  transition: transform 1s ease;
+	
+}
+
+.card:hover {
+  transform: scale(1.5); /* Scale up the card on hover */
+  cursor: pointer;        /* Change cursor to indicate interactivity */
+}
+
+/* 
+  Reusable Styles
+  - Common styles for buttons
+*/
+.common-button {
+  /* Define a reusable button style */
+  background-color: #7289da;
   color: white;
   border: none;
   padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 10px; 
-  margin-top: 10px; /* Add some space above the button */
+  margin-left: 10px; /* Adjust as needed */
+  margin-top: 10px; /* Adjust as needed */
+}
+
+/* 
+  Element-Specific Styles
+  - Styles applied to specific IDs 
+*/
+#rollButton,
+.cards-container button {
+  /* Apply common button style */
+  @extend .common-button;
+}
+
+.dice-type .count {
+  margin: 0 10px;
+  font-size: 18px;
 }
