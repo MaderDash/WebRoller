@@ -11,62 +11,72 @@
         <h2>Select Dice:</h2>
         <div class="dice-type-container">
           <div class="dice-type" data-type="D-100">
-            <button class="decrease">-</button>
+            <button class="decrease common-button">-</button>
             <span class="count">0</span>
-            <button class="increase">+</button>
-            <span class="dice-text">D-100</span> 
+            <button class="increase common-button">+</button>
+            <span class="dice-text">D-100</span>
           </div>
           <div class="dice-results" id="D-100-results"></div>
         </div>
         <div class="dice-type-container">
           <div class="dice-type" data-type="D-20">
-            <button class="decrease">-</button>
+            <button class="decrease common-button">-</button>
             <span class="count">0</span>
-            <button class="increase">+</button>
-            <span class="dice-text">D-20</span> 
+            <button class="increase common-button">+</button>
+            <span class="dice-text">D-20</span>
           </div>
           <div class="dice-results" id="D-20-results"></div>
         </div>
         <div class="dice-type-container">
           <div class="dice-type" data-type="D-12">
-            <button class="decrease">-</button>
+            <button class="decrease common-button">-</button>
             <span class="count">0</span>
-            <button class="increase">+</button>
-            <span class="dice-text">D-12</span> 
+            <button class="increase common-button">+</button>
+            <span class="dice-text">D-12</span>
           </div>
           <div class="dice-results" id="D-12-results"></div>
         </div>
         <div class="dice-type-container">
           <div class="dice-type" data-type="D-10">
-            <button class="decrease">-</button>
+            <button class="decrease common-button">-</button>
             <span class="count">0</span>
-            <button class="increase">+</button>
-            <span class="dice-text">D-10</span> 
+            <button class="increase common-button">+</button>
+            <span class="dice-text">D-10</span>
           </div>
           <div class="dice-results" id="D-10-results"></div>
         </div>
         <div class="dice-type-container">
           <div class="dice-type" data-type="D-6">
-            <button class="decrease">-</button>
+            <button class="decrease common-button">-</button>
             <span class="count">0</span>
-            <button class="increase">+</button>
-            <span class="dice-text">D-6</span> 
+            <button class="increase common-button">+</button>
+            <span class="dice-text">D-6</span>
           </div>
           <div class="dice-results" id="D-6-results"></div>
         </div>
         <div class="dice-type-container">
           <div class="dice-type" data-type="D-4">
-            <button class="decrease">-</button>
+            <button class="decrease common-button">-</button>
             <span class="count">0</span>
-            <button class="increase">+</button>
-            <span class="dice-text">D-4</span> 
+            <button class="increase common-button">+</button>
+            <span class="dice-text">D-4</span>
           </div>
           <div class="dice-results" id="D-4-results"></div>
         </div>
-        <button id="rollButton">Roll Dice</button>
+        <button id="rollButton" class="common-button">Roll Dice</button>
       </div>
       <div class="dice-container"></div>
+      <div id="cards-container" class="cards-container">
+        <select id="folderSelect">
+          <option value="GMA Fantasy VTT">GMA Fantasy VTT</option>
+          <option value="Folder 2">Folder 2</option>
+          <option value="Folder 3">Folder 3</option>
+          <!-- Add more options for additional folders -->
+        </select>
+        <button id="drawCardsButton" class="common-button">Draw Cards</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
 </html>
+
