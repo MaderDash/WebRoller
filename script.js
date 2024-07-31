@@ -62,14 +62,17 @@ rollButton.addEventListener("click", rollDice);
 
 // Function to get a random card image path
 function getRandomCard() {
-  return `GMA Fantasy VTT/GMA Fantasy VTT_Part${
-    Math.floor(Math.random() * 120) + 1
-  }.jpg`;
+  const selectedFolder = document.getElementById('folderSelect').value;
+  const cardNumber = (Math.floor(Math.random() * 120) + 1).toString().padStart(3, '0');
+  return `${selectedFolder}/${selectedFolder}_${cardNumber}.jpg`;
 }
+
 
 // Function to display random cards
 function displayRandomCards() {
-  const cardDisplayArea = document.createElement("div");
+  const cardDisplayArea = document.getElementById('cardDisplayArea') || document.createElement("div");
+  cardDisplayArea.id = 'cardDisplayArea';
+  cardDisplayArea.innerHTML = ''; // Clear previous cards
   const totalCards = 3;
 
   for (let i = 0; i < totalCards; i++) {
@@ -79,9 +82,11 @@ function displayRandomCards() {
     cardDisplayArea.appendChild(cardImg);
   }
 
-  cardsContainer.innerHTML = "";
-  cardsContainer.appendChild(cardDisplayArea);
-  cardsContainer.appendChild(drawCardsButton);
+  if (!document.getElementById('cardDisplayArea')) {
+    cardsContainer.insertBefore(cardDisplayArea, drawCardsButton);
+  }
 }
+
+
 
 drawCardsButton.addEventListener("click", displayRandomCards);
