@@ -116,3 +116,19 @@ body {
   margin: 0 10px;
   font-size: 18px;
 }
+
+.select-button {
+  background-color: #7289da;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.select-button option {
+  background-color: #2c2f33;
+  color: white;
+}
