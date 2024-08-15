@@ -72,6 +72,7 @@ body {
 }
 .card img {
   filter: blur(20px); /* Adjust the blur radius as needed */
+	border-radius: 10px;
 }
 /* Cards */
 .card {
@@ -110,6 +111,10 @@ body {
 .cards-container button {
   /* Apply common button style */
   @extend .common-button;
+}
+
+.cards-container img {
+  border-radius: 10px;
 }
 
 .dice-type .count {
