@@ -1,46 +1,50 @@
-// Get DOM elements
-const diceContainer = document.querySelector(".dice-container");
+const diceContainer = document.querySelector("#dice-container");
 const rollButton = document.getElementById("rollButton");
 const diceTypeElements = document.querySelectorAll(".dice-type");
 const cardsContainer = document.getElementById("cards-container");
 const drawCardsButton = document.getElementById("drawCardsButton");
 
-// --- Dice Rolling Functionality ---
-
-// Function to roll a single die
 function rollDie(sides) {
+  if (sides === 100) {
+    return Math.floor(Math.random() * 100) + 1;
+  } else if (sides === 4) {
+    return Math.floor(Math.random() * 4) + 1;
+  }
   return Math.floor(Math.random() * sides) + 1;
 }
 
-// Function to display a single die roll result
 function displayDieResult(diceType, value) {
-  const dieElement = document.createElement("div");
-  dieElement.classList.add("die");
-  dieElement.textContent = value;
-  document.getElementById(`${diceType}-results`).appendChild(dieElement);
+  // Create a container for this specific die roll
+  const dieContainer = document.createElement("div"); 
+  dieContainer.classList.add("die"); 
+  dieContainer.textContent = value;
+  
+  // Append the container to the results area
+  document.getElementById(`${diceType}-results`).appendChild(dieContainer);
 }
 
-// Function to handle rolling all selected dice
 function rollDice() {
-  diceTypeElements.forEach((diceTypeElement) => {
-    const diceType = diceTypeElement.dataset.type;
-    const sides = parseInt(diceType.slice(2), 10);
-    const count = parseInt(
-      diceTypeElement.querySelector(".count").textContent,
-      10
-    );
+  diceTypeElements.forEach((element) => {
+    // Get the results container for this specific dice type
+    const resultsContainer = document.getElementById(`${element.dataset.type}-results`);
 
-    // Clear previous results and roll new dice
-    const resultsContainer = document.getElementById(`${diceType}-results`);
-    resultsContainer.innerHTML = "";
+    // Clear the results for this dice type
+    resultsContainer.innerHTML = '';
+
+    const diceType = element.dataset.type;
+    const count = parseInt(element.querySelector(".count").textContent, 10);
+    const sides = parseInt(diceType.split("-")[1], 10);
 
     for (let i = 0; i < count; i++) {
-      displayDieResult(diceType, rollDie(sides));
+      const value = rollDie(sides);
+      displayDieResult(diceType, value);
     }
   });
 }
 
-// Event listeners for increasing/decreasing dice counts
+
+
+
 diceTypeElements.forEach((diceTypeElement) => {
   const increaseButton = diceTypeElement.querySelector(".increase");
   const decreaseButton = diceTypeElement.querySelector(".decrease");
@@ -58,21 +62,16 @@ diceTypeElements.forEach((diceTypeElement) => {
 
 rollButton.addEventListener("click", rollDice);
 
-// --- Card Drawing Functionality ---
-
-// Function to get a random card image path
 function getRandomCard() {
   const selectedFolder = document.getElementById('folderSelect').value;
   const cardNumber = (Math.floor(Math.random() * 120) + 1).toString().padStart(3, '0');
   return `${selectedFolder}/${selectedFolder}_${cardNumber}.jpg`;
 }
 
-
-// Function to display random cards
 function displayRandomCards() {
   const cardDisplayArea = document.getElementById('cardDisplayArea') || document.createElement("div");
   cardDisplayArea.id = 'cardDisplayArea';
-  cardDisplayArea.innerHTML = ''; // Clear previous cards
+  cardDisplayArea.innerHTML = '';
   const totalCards = 3;
 
   for (let i = 0; i < totalCards; i++) {
@@ -86,7 +85,5 @@ function displayRandomCards() {
     cardsContainer.insertBefore(cardDisplayArea, drawCardsButton);
   }
 }
-
-
 
 drawCardsButton.addEventListener("click", displayRandomCards);

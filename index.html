@@ -1,82 +1,92 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dice Roller</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="dice-selection">
-        <h1>Dice Roller</h1>
-        <h2>Select Dice:</h2>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dice Roller</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="dice-section">
+      <div id="dice-container">
         <div class="dice-type-container">
-          <div class="dice-type" data-type="D-100">
-            <button class="decrease common-button">-</button>
-            <span class="count">0</span>
-            <button class="increase common-button">+</button>
-            <span class="dice-text">D-100</span>
-          </div>
-          <div class="dice-results" id="D-100-results"></div>
-        </div>
+					<div class="dice-type" data-type="D-100">
+						<button class="decrease common-button" type="button">-</button>
+						<span class="count">0</span>
+						<button class="increase common-button" type="button">+</button>
+						<span class="dice-text">D-100</span>
+					</div>
+					<div class="dice-results" id="D-100-results"></div>
+				</div>
         <div class="dice-type-container">
-          <div class="dice-type" data-type="D-20">
-            <button class="decrease common-button">-</button>
-            <span class="count">0</span>
-            <button class="increase common-button">+</button>
-            <span class="dice-text">D-20</span>
-          </div>
-          <div class="dice-results" id="D-20-results"></div>
-        </div>
+					<div class="dice-type" data-type="D-20">
+						<button class="decrease common-button" type="button">-</button>
+						<span class="count">0</span>
+						<button class="increase common-button" type="button">+</button>
+						<span class="dice-text">D-20</span>
+					</div>
+					<div class="dice-results" id="D-20-results"></div>
+				</div>
         <div class="dice-type-container">
-          <div class="dice-type" data-type="D-12">
-            <button class="decrease common-button">-</button>
-            <span class="count">0</span>
-            <button class="increase common-button">+</button>
-            <span class="dice-text">D-12</span>
-          </div>
-          <div class="dice-results" id="D-12-results"></div>
-        </div>
+					<div class="dice-type" data-type="D-12">
+						<button class="decrease common-button" type="button">-</button>
+						<span class="count">0</span>
+						<button class="increase common-button" type="button">+</button>
+						<span class="dice-text">D-12</span>
+					</div>
+					<div class="dice-results" id="D-12-results"></div>
+				</div>
         <div class="dice-type-container">
-          <div class="dice-type" data-type="D-10">
-            <button class="decrease common-button">-</button>
-            <span class="count">0</span>
-            <button class="increase common-button">+</button>
-            <span class="dice-text">D-10</span>
-          </div>
-          <div class="dice-results" id="D-10-results"></div>
-        </div>
+					<div class="dice-type" data-type="D-10">
+						<button class="decrease common-button" type="button">-</button>
+						<span class="count">0</span>
+						<button class="increase common-button" type="button">+</button>
+						<span class="dice-text">D-10</span>
+					</div>
+					<div class="dice-results" id="D-10-results"></div>
+				</div>
         <div class="dice-type-container">
-          <div class="dice-type" data-type="D-6">
-            <button class="decrease common-button">-</button>
-            <span class="count">0</span>
-            <button class="increase common-button">+</button>
-            <span class="dice-text">D-6</span>
-          </div>
-          <div class="dice-results" id="D-6-results"></div>
-        </div>
+					<div class="dice-type" data-type="D-8">
+						<button class="decrease common-button" type="button">-</button>
+						<span class="count">0</span>
+						<button class="increase common-button" type="button">+</button>
+						<span class="dice-text">D-8</span>
+					</div>
+					<div class="dice-results" id="D-8-results"></div>
+				</div>
         <div class="dice-type-container">
-          <div class="dice-type" data-type="D-4">
-            <button class="decrease common-button">-</button>
-            <span class="count">0</span>
-            <button class="increase common-button">+</button>
-            <span class="dice-text">D-4</span>
-          </div>
-          <div class="dice-results" id="D-4-results"></div>
-        </div>
-        <button id="rollButton" class="common-button">Roll Dice</button>
+					<div class="dice-type" data-type="D-6">
+						<button class="decrease common-button" type="button">-</button>
+						<span class="count">0</span>
+						<button class="increase common-button" type="button">+</button>
+						<span class="dice-text">D-6</span>
+					</div>
+					<div class="dice-results" id="D-6-results"></div>
+				</div>
+				<div class="dice-type-container">
+					<div class="dice-type" data-type="D-4">
+						<button class="decrease common-button" type="button">-</button>
+						<span class="count">0</span>
+						<button class="increase common-button" type="button">+</button>
+						<span class="dice-text">D-4</span>
+					</div>
+					<div class="dice-results" id="D-4-results"></div>
+				</div>
+        <button id="rollButton" class="common-button" type="button">Roll Dice</button>
       </div>
-      <div class="dice-container"></div>
+			</div>
+			<div class="cards-section">
       <div id="cards-container" class="cards-container">
-        <select id="folderSelect" class="select-button">
-					<option value="GMA_Demon_Hunters">GMA Demon Hunters</option>
-					<option value="GMA_Fantasy_VTT">GMA Fantasy VTT</option>
-					<option value="GMA_SciFi">GMA SciFi</option>
-					<!-- Add more options as needed -->
-				</select>
-        <button id="drawCardsButton" class="common-button">Draw Cards</button>
+        <select id="folderSelect" class="common-button" aria-label="Select image folder">
+          <option value="GMA_Fantasy_VTT">GMA_Fantasy_VTT</option>
+          <option value="GMA_Demon_Hunters">GMA_Demon_Hunters</option>
+          <option value="GMA_SciFi">GMA_SciFi</option>
+        </select>
+        <button id="drawCardsButton" class="common-button" type="button">Draw Cards</button>
       </div>
     </div>
+		</div>
     <script src="script.js"></script>
   </body>
-</html>
-
+  </html>
