@@ -1,15 +1,18 @@
+/* General body styling */
 body {
   background-color: #23272a;
   color: aquamarine;
   font-family: "Roboto", sans-serif;
 }
 
+/* Card styling */
 .card {
   margin: 0 5px;
   max-width: 30%;
   height: auto;
 }
 
+/* Card display area layout */
 #cardDisplayArea {
   display: flex;
   flex-direction: row;
@@ -18,25 +21,30 @@ body {
   width: 100%;
 }
 
+/* Cards container styling */
 #cards-container {
-  flex: 0 0 60%; /* Adjust the percentage as needed */
+  flex: 0 0 60%;
   margin-left: 10px;
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
+/* Card image styling */
 .cards-container img {
   border-radius: 10px;
 }
 
+/* Card hover effect */
 .card:hover {
   transform: scale(1.5);
   cursor: pointer;
 }
 
+/* Cards section layout */
 .cards-section {
   flex: 1;
 }
 
+/* Common button styling */
 .common-button {
   padding: 10px 20px;
   font-size: 18px;
@@ -49,56 +57,52 @@ body {
   margin: 5px;
 }
 
+/* Main container layout */
 .container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
+/* Individual die styling */
 .die {
   display: inline-block;
-  margin: 2px; /* Adjust spacing between individual die results */
+  margin: 2px;
   padding: 8px;
   border: 1px solid black;
   border-radius: 5px;
 }
 
+/* Dice section layout */
 .dice-section {
-  flex: 0 0 35%; /* Adjust the percentage as needed */
+  flex: 0 0 35%;
 }
 
+/* Dice text styling */
 .dice-text {
-  padding-right: 10px; /* Add spacing between text and results */
+  padding-right: 10px;
 }
 
+/* Dice type container layout */
 .dice-type-container {
-  /* Apply grid to each dice type */
   display: grid;
-  grid-template-columns: auto 1fr; /* Auto width for text, rest for results */
-  align-items: center; /* Vertically center content */
+  grid-template-columns: auto 1fr;
+  align-items: center;
   margin-bottom: 10px;
 }
 
-.common-button {
-  background-color: #7289da;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
+/* Dice type count styling */
 .dice-type .count {
   margin: 0 10px;
   font-size: 18px;
 }
 
+/* Dice results container */
 #dice-results {
   margin-top: 20px;
 }
 
+/* Custom select styling */
 select.common-button {
   appearance: none;
   -webkit-appearance: none;
