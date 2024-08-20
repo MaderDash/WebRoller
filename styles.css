@@ -5,7 +5,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-/* Card styling */
+/* Card styling fixing some errors.*/
 .card {
   margin: 0 5px;
   max-width: 30%;
